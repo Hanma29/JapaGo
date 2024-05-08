@@ -1,0 +1,45 @@
+import random
+
+# Define a dictionary of Japanese words and their English translations
+vocab = {"こんにちは": "Hello", "ありがとう": "Thank you", "さようなら": "Goodbye"}
+
+def display_vocab():
+    print("Japanese Vocabulary:")
+    for japanese, english in vocab.items():
+        print(f"{japanese} - {english}")
+
+def test_knowledge():
+    japanese_word = random.choice(list(vocab.keys()))
+    correct_translation = vocab[japanese_word]
+    user_translation = input(f"What is the English translation of '{japanese_word}'? ")
+    if user_translation.lower() == correct_translation.lower():
+        print("Correct!")
+    else:
+        print(f"Incorrect. The correct translation is '{correct_translation}'.")
+
+def add_word():
+    japanese_word = input("Enter the Japanese word: ")
+    english_translation = input("Enter the English translation: ")
+    vocab[japanese_word] = english_translation
+    print(f"Added '{japanese_word}' - '{english_translation}' to the vocabulary.")
+
+# Main program loop
+while True:
+    print("\nMenu:")
+    print("1. Display Vocabulary")
+    print("2. Test Your Knowledge")
+    print("3. Add Word")
+    print("4. Quit")
+    choice = input("Enter your choice (1-4): ")
+
+    if choice == "1":
+        display_vocab()
+    elif choice == "2":
+        test_knowledge()
+    elif choice == "3":
+        add_word()
+    elif choice == "4":
+        print("Thank you for using the Japanese Vocabulary Learning App. Sayonara!")
+        break
+    else:
+        print("Invalid choice. Please enter a number from 1 to 4.")
